@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Papa from "papaparse";
 import ProductCard from "./ProductCard";
-import FloatingCart from "./FloatingCart"; // Assuming you have a FloatingCart component
-import { useHistory } from "react-router-dom";
+import FloatingCart from "./FloatingCart";
+import "./ProductList.css"; // Import your CSS file
 
 const sheetUrls = {
   general:
@@ -20,15 +20,13 @@ const sheetUrls = {
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vQYGe49CMfHtSVXwpeytgh5FvCT-06ec539uGMx25oWgEzZo1RvBZaGgZpPTDDW2w/pub?gid=231418887&output=csv",
 };
 
-function ProductList({ match }) {
-  const { category } = match.params;
+const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false); // Initial loading state
+  const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
-  const history = useHistory();
+  const [currentCategory, setCurrentCategory] = useState("general");
 
   const fetchData = async (url) => {
-    setLoading(true); // Set loading state to true when fetching data
     try {
       const result = await axios.get(url);
       const csv = result.data;
@@ -58,20 +56,25 @@ function ProductList({ match }) {
             .filter((product) => product !== null); // Filter out null products
 
           setProducts(data);
-          setLoading(false); // Set loading state to false after fetching and parsing data
+          setLoading(false);
         },
         header: false,
         skipEmptyLines: true,
       });
     } catch (error) {
       console.error("Error fetching data:", error);
-      setLoading(false); // Set loading state to false if there's an error
     }
   };
 
   useEffect(() => {
-    fetchData(sheetUrls[category]); // Fetch data initially for the current category
-  }, [category]);
+    fetchData(sheetUrls[currentCategory]);
+    const intervalId = setInterval(
+      () => fetchData(sheetUrls[currentCategory]),
+      60000
+    ); // Fetch data every 60 seconds
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, [currentCategory]);
 
   const handleAddToCart = (product, quantity) => {
     const existingItem = cartItems.find(
@@ -95,25 +98,48 @@ function ProductList({ match }) {
     setCartItems(updatedCartItems);
   };
 
-  const navigateToCategory = (category) => {
-    history.push(`/products/${category}`);
-  };
-
   return (
-    <div className="ProductList">
+    <div>
       <div className="category-buttons">
-        <button onClick={() => navigateToCategory("general")}>General</button>
-        <button onClick={() => navigateToCategory("popular")}>Popular</button>
-        <button onClick={() => navigateToCategory("herbal")}>Herbal</button>
-        <button onClick={() => navigateToCategory("surgical")}>Surgical</button>
-        <button onClick={() => navigateToCategory("baby_food")}>
+        <button
+          className={currentCategory === "general" ? "active" : ""}
+          onClick={() => setCurrentCategory("general")}
+        >
+          General
+        </button>
+        <button
+          className={currentCategory === "popular" ? "active" : ""}
+          onClick={() => setCurrentCategory("popular")}
+        >
+          Popular
+        </button>
+        <button
+          className={currentCategory === "herbal" ? "active" : ""}
+          onClick={() => setCurrentCategory("herbal")}
+        >
+          Herbal
+        </button>
+        <button
+          className={currentCategory === "surgical" ? "active" : ""}
+          onClick={() => setCurrentCategory("surgical")}
+        >
+          Surgical
+        </button>
+        <button
+          className={currentCategory === "baby_food" ? "active" : ""}
+          onClick={() => setCurrentCategory("baby_food")}
+        >
           Baby Food
         </button>
-        <button onClick={() => navigateToCategory("others")}>Others</button>
+        <button
+          className={currentCategory === "others" ? "active" : ""}
+          onClick={() => setCurrentCategory("others")}
+        >
+          Others
+        </button>
       </div>
-      <h1>{category.charAt(0).toUpperCase() + category.slice(1)} Products</h1>
       {loading ? (
-        <p>Loading...</p>
+        <p className="loading">Loading...</p>
       ) : (
         <>
           <div className="product-list">
@@ -134,6 +160,6 @@ function ProductList({ match }) {
       )}
     </div>
   );
-}
+};
 
 export default ProductList;

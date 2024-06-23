@@ -2,44 +2,10 @@
   text-align: center;
 }
 
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+section {
+  padding: 50px 20px;
 }
 
-.product-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
-  text-align: left;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-card h2 {
-  margin-top: 0;
-}
-
-.product-card p {
-  margin: 8px 0;
-}
-
-.product-card strong {
-  font-weight: bold;
-}
-
-.category-buttons {
+h1, h2 {
   margin-bottom: 20px;
-}
-
-.category-buttons button {
-  margin-right: 10px;
-  padding: 10px 20px;
-  cursor: pointer;
 }
