@@ -64,7 +64,9 @@ const ProductCard = ({ product, onAddToCart, cartItems }) => {
             </button>
           )
         ) : (
-          <p className="out-of-stock">Out of Stock</p>
+          <button className="out-of-stock-button" disabled>
+            Out of Stock
+          </button>
         )}
       </div>
     </div>
