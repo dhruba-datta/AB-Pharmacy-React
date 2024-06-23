@@ -15,9 +15,8 @@ const Navbar = ({ setCurrentCategory, onSearch }) => {
   };
 
   const handleSearchInputChange = (event) => {
-    const query = event.target.value;
-    setSearchQuery(query);
-    onSearch(query); // Call onSearch prop with current search query
+    setSearchQuery(event.target.value);
+    onSearch(event.target.value); // Check if 'onSearch' is defined properly
   };
 
   return (

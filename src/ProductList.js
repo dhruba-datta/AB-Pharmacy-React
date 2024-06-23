@@ -3,6 +3,7 @@ import axios from "axios";
 import Papa from "papaparse";
 import ProductCard from "./ProductCard";
 import FloatingCart from "./FloatingCart";
+import Navbar from "./Navbar"; // Import the Navbar component
 import "./ProductList.css"; // Import your CSS file
 
 const sheetUrls = {
@@ -25,7 +26,9 @@ const ProductList = () => {
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("general");
+  const [searchQuery, setSearchQuery] = useState("");
 
+  // Function to fetch data from Google Sheets
   const fetchData = async (url) => {
     try {
       const result = await axios.get(url);
@@ -66,6 +69,7 @@ const ProductList = () => {
     }
   };
 
+  // Fetch data when component mounts and set interval for periodic fetching
   useEffect(() => {
     fetchData(sheetUrls[currentCategory]);
     const intervalId = setInterval(
@@ -76,6 +80,7 @@ const ProductList = () => {
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, [currentCategory]);
 
+  // Function to handle adding items to the cart
   const handleAddToCart = (product, quantity) => {
     const existingItem = cartItems.find(
       (item) => item.product.Name === product.Name
@@ -91,6 +96,7 @@ const ProductList = () => {
     }
   };
 
+  // Function to handle removing items from the cart
   const handleRemoveFromCart = (product) => {
     const updatedCartItems = cartItems.filter(
       (item) => item.product.Name !== product.Name
@@ -98,52 +104,39 @@ const ProductList = () => {
     setCartItems(updatedCartItems);
   };
 
+  // Function to handle search input change
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Filter products based on search query
+  const filteredProducts = products.filter((product) =>
+    product.Name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div>
-      <div className="category-buttons">
-        <button
-          className={currentCategory === "general" ? "active" : ""}
-          onClick={() => setCurrentCategory("general")}
-        >
-          General
-        </button>
-        <button
-          className={currentCategory === "popular" ? "active" : ""}
-          onClick={() => setCurrentCategory("popular")}
-        >
-          Popular
-        </button>
-        <button
-          className={currentCategory === "herbal" ? "active" : ""}
-          onClick={() => setCurrentCategory("herbal")}
-        >
-          Herbal
-        </button>
-        <button
-          className={currentCategory === "surgical" ? "active" : ""}
-          onClick={() => setCurrentCategory("surgical")}
-        >
-          Surgical
-        </button>
-        <button
-          className={currentCategory === "baby_food" ? "active" : ""}
-          onClick={() => setCurrentCategory("baby_food")}
-        >
-          Baby Food
-        </button>
-        <button
-          className={currentCategory === "others" ? "active" : ""}
-          onClick={() => setCurrentCategory("others")}
-        >
-          Others
-        </button>
-      </div>
+      <Navbar
+        setCurrentCategory={setCurrentCategory}
+        onSearch={handleSearchInputChange}
+      />
       {loading ? (
         <p className="loading">Loading...</p>
       ) : (
         <>
+          <div className="category-buttons">
+            {Object.keys(sheetUrls).map((category) => (
+              <button
+                key={category}
+                className={currentCategory === category ? "active" : ""}
+                onClick={() => setCurrentCategory(category)}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </button>
+            ))}
+          </div>
           <div className="product-list">
-            {products.map((product, index) => (
+            {filteredProducts.map((product, index) => (
               <ProductCard
                 key={index}
                 product={product}

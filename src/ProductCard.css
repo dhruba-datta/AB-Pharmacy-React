@@ -1,12 +1,13 @@
-/* src/ProductList.css */
-
 .product-list {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px; /* Spacing between product cards */
   justify-content: center;
 }
 
 .product-card {
+  width: 300px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center; /* Center items horizontally */
@@ -20,7 +21,9 @@
 
 .product-image {
   width: 100%; /* Ensure image takes full width of container */
+  height: 200px; /* Fixed height for the image container */
   border-radius: 8px;
+  object-fit: cover;
   margin-bottom: 10px;
 }
 
@@ -45,8 +48,8 @@
 
 .button-container {
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Center buttons horizontally */
+  justify-content: center; /* Center buttons horizontally */
+  margin-top: auto; /* Push buttons to the bottom */
 }
 
 .add-to-cart-button,
@@ -71,8 +74,8 @@
 }
 
 .quantity-button {
-  width: 40px; /* Set width */
-  height: 40px; /* Set height */
+  width: 40px;
+  height: 40px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
