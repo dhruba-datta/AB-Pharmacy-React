@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 
-const Navbar = ({ setCurrentCategory }) => {
+const Navbar = ({ setCurrentCategory, onSearch }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -11,6 +12,12 @@ const Navbar = ({ setCurrentCategory }) => {
   const handleCategoryChange = (category) => {
     setCurrentCategory(category);
     setIsDropdownOpen(false);
+  };
+
+  const handleSearchInputChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    onSearch(query); // Call onSearch prop with current search query
   };
 
   return (
@@ -47,6 +54,14 @@ const Navbar = ({ setCurrentCategory }) => {
         </div>
         <a href="#services">Order Chart</a>
         <a href="#contact">Contact</a>
+        <div className="search-form">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+          />
+        </div>
       </div>
     </nav>
   );
