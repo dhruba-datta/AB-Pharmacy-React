@@ -46,7 +46,9 @@ const ProductCard = ({ product, onAddToCart, cartItems }) => {
       <div className="product-info">
         <h3 className="product-name">{product.Name}</h3>
         <p className="product-description">{product.Description}</p>
-        <p className="product-price">MRP: {product.Price.toFixed(2)}</p>
+        <p className="product-price">
+          Price: &#2547; {product.Price.toFixed(2)}
+        </p>
         {product.Stock === "Y" ? (
           showQuantitySelector ? (
             <div className="quantity-selector">

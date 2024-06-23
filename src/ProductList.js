@@ -3,6 +3,7 @@ import axios from "axios";
 import Papa from "papaparse";
 import ProductCard from "./ProductCard";
 import FloatingCart from "./FloatingCart"; // Assuming you have a FloatingCart component
+import { useHistory } from "react-router-dom";
 
 const sheetUrls = {
   general:
@@ -22,14 +23,15 @@ const sheetUrls = {
 function ProductList({ match }) {
   const { category } = match.params;
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // Initial loading state
   const [cartItems, setCartItems] = useState([]);
+  const history = useHistory();
 
   const fetchData = async (url) => {
+    setLoading(true); // Set loading state to true when fetching data
     try {
       const result = await axios.get(url);
       const csv = result.data;
-      console.log("CSV Data:", csv); // Log CSV data
 
       Papa.parse(csv, {
         complete: (results) => {
@@ -55,23 +57,20 @@ function ProductList({ match }) {
             })
             .filter((product) => product !== null); // Filter out null products
 
-          console.log("Parsed Data:", data); // Log parsed data
           setProducts(data);
-          setLoading(false);
+          setLoading(false); // Set loading state to false after fetching and parsing data
         },
         header: false,
         skipEmptyLines: true,
       });
     } catch (error) {
       console.error("Error fetching data:", error);
+      setLoading(false); // Set loading state to false if there's an error
     }
   };
 
   useEffect(() => {
-    fetchData(sheetUrls[category]);
-    const intervalId = setInterval(() => fetchData(sheetUrls[category]), 60000); // Fetch data every 60 seconds
-
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+    fetchData(sheetUrls[category]); // Fetch data initially for the current category
   }, [category]);
 
   const handleAddToCart = (product, quantity) => {
@@ -96,8 +95,22 @@ function ProductList({ match }) {
     setCartItems(updatedCartItems);
   };
 
+  const navigateToCategory = (category) => {
+    history.push(`/products/${category}`);
+  };
+
   return (
     <div className="ProductList">
+      <div className="category-buttons">
+        <button onClick={() => navigateToCategory("general")}>General</button>
+        <button onClick={() => navigateToCategory("popular")}>Popular</button>
+        <button onClick={() => navigateToCategory("herbal")}>Herbal</button>
+        <button onClick={() => navigateToCategory("surgical")}>Surgical</button>
+        <button onClick={() => navigateToCategory("baby_food")}>
+          Baby Food
+        </button>
+        <button onClick={() => navigateToCategory("others")}>Others</button>
+      </div>
       <h1>{category.charAt(0).toUpperCase() + category.slice(1)} Products</h1>
       {loading ? (
         <p>Loading...</p>
