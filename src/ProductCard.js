@@ -1,26 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductCard.css";
 
-const ProductCard = ({ product, onAddToCart }) => {
+const ProductCard = ({ product, onAddToCart, cartItems }) => {
   const [quantity, setQuantity] = useState(0);
   const [showQuantitySelector, setShowQuantitySelector] = useState(false);
 
+  useEffect(() => {
+    const cartItem = cartItems.find(
+      (item) => item.product.Name === product.Name
+    );
+    if (cartItem) {
+      setQuantity(cartItem.quantity);
+      setShowQuantitySelector(true);
+    } else {
+      setQuantity(0);
+      setShowQuantitySelector(false);
+    }
+  }, [cartItems, product.Name]);
+
   const addToCartHandler = () => {
-    setQuantity(1); // Set quantity to 1 when adding to cart for the first time
-    onAddToCart(product, 1); // Add 1 product to cart
-    setShowQuantitySelector(true); // Show quantity selector
+    setQuantity(1);
+    onAddToCart(product, 1);
+    setShowQuantitySelector(true);
   };
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
-      onAddToCart(product, quantity - 1); // Adjust quantity in cart
+      onAddToCart(product, quantity - 1);
+    } else {
+      setQuantity(0);
+      setShowQuantitySelector(false);
+      onAddToCart(product, 0);
     }
   };
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
-    onAddToCart(product, quantity + 1); // Adjust quantity in cart
+    onAddToCart(product, quantity + 1);
   };
 
   return (

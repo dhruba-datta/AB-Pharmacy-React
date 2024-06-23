@@ -78,20 +78,18 @@ function App() {
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, [currentCategory]);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, quantity) => {
     const existingItem = cartItems.find(
       (item) => item.product.Name === product.Name
     );
 
     if (existingItem) {
       const updatedCartItems = cartItems.map((item) =>
-        item.product.Name === product.Name
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
+        item.product.Name === product.Name ? { ...item, quantity } : item
       );
       setCartItems(updatedCartItems);
     } else {
-      setCartItems([...cartItems, { product: product, quantity: 1 }]);
+      setCartItems([...cartItems, { product: product, quantity }]);
     }
   };
 
@@ -125,6 +123,7 @@ function App() {
                 key={index}
                 product={product}
                 onAddToCart={handleAddToCart}
+                cartItems={cartItems}
               />
             ))}
           </div>
