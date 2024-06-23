@@ -33,3 +33,13 @@
 .product-card strong {
   font-weight: bold;
 }
+
+.category-buttons {
+  margin-bottom: 20px;
+}
+
+.category-buttons button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
