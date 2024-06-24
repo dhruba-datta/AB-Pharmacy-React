@@ -15,10 +15,8 @@ h1, h2, h3 {
 }
 
 section {
-  padding: 50px 20px;
   background-color: #ffffff; /* White background for sections */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for sections */
-  margin-bottom: 20px;
 }
 
 /* Responsive adjustments */
