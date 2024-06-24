@@ -10,9 +10,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .modal {
+}
+
+.modal {
     background: #fff;
     padding: 20px;
     border-radius: 8px; /* Increased border-radius for a more modern look */
@@ -20,16 +20,16 @@
     width: 100%;
     position: relative; /* Ensure relative positioning for absolute child */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Added box-shadow for depth */
-  }
-  
-  .modal-header {
+}
+
+.modal-header {
     display: flex;
     justify-content: center; /* Center the title horizontally */
     align-items: center;
     margin-bottom: 15px; /* Added space between header and content */
-  }
-  
-  .modal-close {
+}
+
+.modal-close {
     cursor: pointer;
     background: none;
     border: none;
@@ -39,8 +39,15 @@
     top: 10px;
     right: 10px;
     color: #999; /* Light gray color for close icon */
-  }
-  
-  .modal-close:hover {
+}
+
+.modal-close:hover {
     color: #555; /* Darken close icon on hover */
-  }
+}
+
+@media (max-width: 768px) { /* Adjust this breakpoint as per your design needs */
+    .modal {
+        width: 75%; /* Set width to 95% for mobile view */
+        max-width: none; /* Remove max-width for mobile view */
+    }
+}
