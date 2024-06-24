@@ -147,7 +147,10 @@
   transition: color 0.3s ease;
   display: flex;
   align-items: center;
+  justify-content: flex-end; /* Align button to the right */
+  margin-left: auto; /* Push button to the right edge */
 }
+
 
 .cart-item-remove:hover {
   color: #e53935;
