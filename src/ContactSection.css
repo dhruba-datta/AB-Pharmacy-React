@@ -1,34 +1,81 @@
-/* src/ContactSection.css */
+/* ContactSection.css */
 
 .contact-section {
-    background-color: #f0f0f0;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.contact-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-option {
+  margin: 20px;
+  width: calc(33.33% - 40px);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-icon {
+  font-size: 36px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  text-align: center;
+}
+
+.contact-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-button {
+  background-color: #34A853;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #2F7B4F;
+}
+
+/* Add a separate style for the "Call us" button */
+.contact-option:first-child .contact-button {
+  background-color: #0097A7;
+}
+
+.contact-option:first-child .contact-button:hover {
+  background-color: #00787A;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .contact-option {
+    width: calc(50% - 40px);
   }
-  
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+
+@media (max-width: 480px) {
+  .contact-option {
+    width: 100%;
   }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .contact-form button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #00796B;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .contact-form button:hover {
-    background-color: #005f56;
-  }
-  
+}

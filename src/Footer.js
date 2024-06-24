@@ -7,21 +7,23 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-left">
-          <p>&copy; 2024 Pharmacy Inc. All rights reserved.</p>
-        </div>
         <div className="footer-right">
+          <h1>AB Pharmacy</h1>
           <ul className="footer-links">
             <li>
-              <a href="#privacy-policy">Privacy Policy</a>
+              <i className="fas fa-mobile-alt"></i>
+              <a href="tel:+8801912555765">+880 1912-555765</a>
             </li>
             <li>
-              <a href="#terms-of-service">Terms of Service</a>
-            </li>
-            <li>
-              <a href="#contact">Contact Us</a>
+              <i className="fas fa-envelope"></i>
+              <a href="mailto:abpharmacy72@gmail.com">abpharmacy72@gmail.com</a>
             </li>
           </ul>
+        </div>
+        <div className="footer-left">
+          <p>
+            Copyright &copy; {new Date().getFullYear()} | All Rights Reserved
+          </p>
         </div>
       </div>
     </footer>
