@@ -10,7 +10,7 @@
 }
 
 .cart-icon {
-  background-color: #006769;
+  background-color: #009688;
   color: #fff;
   width: 50px;
   height: 50px;
@@ -61,6 +61,7 @@
   position: relative;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center; /* Center align all content */
+  min-height: 20vh;
   max-height: 80vh; /* Limit height to 80% of viewport height */
   overflow-y: auto; /* Enable vertical scrolling */
 }
