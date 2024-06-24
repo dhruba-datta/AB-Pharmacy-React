@@ -17,7 +17,6 @@ const Modal = ({ show, onClose, marketName, marketDetails }) => {
           </button>
         </div>
         <p>{marketDetails}</p>
-        {/* Additional content can be added here */}
       </div>
     </div>
   );
