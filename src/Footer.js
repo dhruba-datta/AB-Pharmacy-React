@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-content">
         <img src={logo} alt="AB Pharmacy Logo" className="footer-logo" />
         <div className="footer-right">
-          <h1>AB Pharmacy</h1>
+          <h2>AB Pharmacy</h2>
           <ul className="footer-links">
             <li>
               <i className="fas fa-mobile-alt"></i>

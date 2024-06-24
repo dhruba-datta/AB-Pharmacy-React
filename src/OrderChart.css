@@ -11,13 +11,14 @@
 }
 
 .services .table {
-  width: 100%;
+  width: 95%;
   max-width: 950px;
   border-collapse: collapse;
-  margin: 10px auto;
   background-color: #fff;
   border-radius: 8px;
+  margin: 10px auto; /* Center the table horizontally */
 }
+
 
 .services .table th,
 .services .table td {

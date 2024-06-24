@@ -6,7 +6,7 @@
   padding-bottom: 20px;
 }
 
-.footer h1{
+.footer h2{
   color: white;
   font-size: 35px;
   font-weight: 700;
@@ -29,7 +29,7 @@
 
 .footer-links {
   list-style: none;
-  padding: 15px;
+  padding: 0 15px 15px 15px;
   font-style: italic;
 }
 
@@ -77,5 +77,4 @@
   width: 150px; /* Set a fixed width for the logo */
   height: auto; /* Maintain aspect ratio */
   margin-top: 25px;
-  margin-bottom: 5px;
 }
