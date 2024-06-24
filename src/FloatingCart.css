@@ -110,7 +110,7 @@
 
 .cart-item-left {
   flex-basis: 40%; /* Set width to 40% */
-  text-align: left; /* Left align text */
+  text-align: center; /* Center align text */
 }
 
 .cart-item-center {
@@ -121,6 +121,8 @@
 .cart-item-right {
   flex-basis: 20%; /* Set width to 20% */
   text-align: right; /* Right align text */
+  display: flex;
+  justify-content: flex-end; /* Right align the remove button */
 }
 
 .cart-item-name {
