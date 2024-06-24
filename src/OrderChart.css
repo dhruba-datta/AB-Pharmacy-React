@@ -25,14 +25,14 @@
 .services .table th,
 .services .table td {
   padding: 12px 15px;
-  border: 1px solid #e6e6e6; /* Border for each cell */
+  border: 1px solid #e6e6e6;
 }
 
 .services .table th {
-  background-color: #006769; /* Background color for table headers */
-  color: #ffffff; /* Text color for table headers */
+  background-color: #006769;
+  color: #ffffff;
   font-weight: 700;
-  text-transform: uppercase; /* Uppercase headings */
+  text-transform: uppercase;
 }
 
 .services .table td {
@@ -44,14 +44,14 @@
 .services .table tbody tr:nth-child(4n+2),
 .services .table tbody tr:nth-child(4n+3),
 .services .table tbody tr:nth-child(4n+4) {
-  background-color: #f1fdff; /* Color for first block of four rows */
+  background-color: #f1fdff;
 }
 
 .services .table tbody tr:nth-child(8n+5),
 .services .table tbody tr:nth-child(8n+6),
 .services .table tbody tr:nth-child(8n+7),
 .services .table tbody tr:nth-child(8n+8) {
-  background-color: #fbfff1; /* Color for second block of four rows */
+  background-color: #fbfff1; 
 }
 
 @media (max-width: 768px) {
@@ -63,7 +63,6 @@
   }
 }
 
-/* Center align specific cells */
 .services .table .center-align {
   text-align: center;
 }

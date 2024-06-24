@@ -39,24 +39,25 @@
 }
 
 .modal-close {
-    cursor: pointer;
-    background: none;
+    background-color: transparent;
+    color: #999;
     border: none;
     padding: 0;
-    font-size: 1.5rem; /* Adjusted font size for close icon */
-    position: absolute; /* Position close button absolute within .modal */
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
     top: 10px;
     right: 10px;
-    color: #999; /* Light gray color for close icon */
+    transition: color 0.3s ease;
 }
 
 .modal-close:hover {
     color: #555; /* Darken close icon on hover */
 }
 
-@media (max-width: 768px) { /* Adjust this breakpoint as per your design needs */
+@media (max-width: 768px) { 
     .modal {
-        width: 75%; /* Set width to 95% for mobile view */
-        max-width: none; /* Remove max-width for mobile view */
+        width: 75%; 
+        max-width: none; 
     }
 }
