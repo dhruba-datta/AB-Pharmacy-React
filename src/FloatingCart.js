@@ -1,3 +1,5 @@
+// src/FloatingCart.js
+
 import React, { useState } from "react";
 import "./FloatingCart.css";
 
