@@ -4,11 +4,6 @@
     background-color: #f0f0f0;
   }
   
-  .contact-section h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  
   .contact-form {
     display: flex;
     flex-direction: column;
