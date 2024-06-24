@@ -49,14 +49,20 @@ const OrderChart = () => {
                         {market.name}
                       </td>
                       {index % 4 === 0 && (
-                        <td className={`o${market.group}`} rowSpan="4">
-                          {market.orderDay}
-                        </td>
-                      )}
-                      {index % 4 === 0 && (
-                        <td className={`d${market.group}`} rowSpan="4">
-                          {market.deliveryDay}
-                        </td>
+                        <>
+                          <td
+                            className={`o${market.group} center-align`}
+                            rowSpan="4"
+                          >
+                            {market.orderDay}
+                          </td>
+                          <td
+                            className={`d${market.group} center-align`}
+                            rowSpan="4"
+                          >
+                            {market.deliveryDay}
+                          </td>
+                        </>
                       )}
                     </tr>
                   ))}
