@@ -190,7 +190,7 @@
 
 @media (max-width: 768px) {
   .cart-popup {
-    width: 75%;
+    width: 85%;
     max-width: none;
   }
 }
