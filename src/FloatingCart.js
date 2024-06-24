@@ -39,24 +39,32 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
               <ul className="cart-items">
                 {cartItems.map((item, index) => (
                   <li key={index} className="cart-item">
-                    <div className="cart-item-info">
-                      <div className="cart-item-details">
-                        <div className="cart-item-name">
+                    <div className="cart-item-details">
+                      <div className="cart-item-column cart-item-left">
+                        <span className="cart-item-name">
                           {item.product.Name}
-                        </div>
-                        <div className="cart-item-price">
+                        </span>
+                        <span className="cart-item-mrp">
                           MRP: {item.product.Price.toFixed(2)}
-                        </div>
-                        <div className="cart-item-quantity">
-                          Quantity: {item.quantity}
-                        </div>
+                        </span>
                       </div>
-                      <button
-                        className="cart-item-remove"
-                        onClick={() => onRemoveFromCart(item.product)}
-                      >
-                        <FontAwesomeIcon icon={faTrashAlt} />
-                      </button>
+                      <div className="cart-item-column cart-item-center">
+                        <span className="cart-item-quantity">
+                          Quantity: {item.quantity}
+                        </span>
+                        <span className="cart-item-total">
+                          Total:{" "}
+                          {(item.product.Price * item.quantity).toFixed(2)}
+                        </span>
+                      </div>
+                      <div className="cart-item-column cart-item-right">
+                        <button
+                          className="cart-item-remove"
+                          onClick={() => onRemoveFromCart(item.product)}
+                        >
+                          <FontAwesomeIcon icon={faTrashAlt} />
+                        </button>
+                      </div>
                     </div>
                   </li>
                 ))}
