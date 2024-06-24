@@ -1,12 +1,10 @@
-// src/ProductList.js
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Papa from "papaparse";
 import ProductCard from "./ProductCard";
 import FloatingCart from "./FloatingCart";
-import Navbar from "./Navbar"; // Import the Navbar component
-import "./ProductList.css"; // Import your CSS file
+import Navbar from "./Navbar";
+import "./ProductList.css";
 
 const sheetUrls = {
   general:
