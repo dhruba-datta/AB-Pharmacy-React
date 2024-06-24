@@ -32,7 +32,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
             <button className="close-popup" onClick={handleTogglePopup}>
               &times;
             </button>
-            <h2>Cart</h2>
+            <h2>Shopping Cart</h2>
             {cartItems.length === 0 ? (
               <p>Your cart is empty.</p>
             ) : (
