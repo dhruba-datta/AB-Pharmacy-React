@@ -24,6 +24,7 @@
 
 .modal-header {
     display: flex;
+    font-size: 0.8em;
     justify-content: center; /* Center the title horizontally */
     align-items: center;
     color: #006769;
