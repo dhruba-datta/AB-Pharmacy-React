@@ -1,14 +1,13 @@
 /* ContactSection.css */
-
-
 .contact-options {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
+  margin-bottom: 30px;
+} 
 
 .contact-option {
-  margin: 20px;
+  margin: 10px;
   width: calc(33.33% - 40px);
   background-color: #fff;
   border: 1px solid #ddd;
