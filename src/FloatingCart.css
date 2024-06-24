@@ -38,6 +38,9 @@
   font-size: 0.75rem;
   font-weight: bold;
 }
+.thin-hr {
+  border: 0.1px solid #cccccc67;
+}
 
 /* Overlay for the cart popup */
 .cart-popup-overlay {

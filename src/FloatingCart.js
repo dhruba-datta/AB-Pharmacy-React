@@ -71,7 +71,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
               </ul>
             )}
             <div className="cart-total">
-              <hr />
+              <hr className="thin-hr" />
               Total: &#2547;{" "}
               <span className="cart-total-price">{cartTotal.toFixed(2)}</span>
             </div>
