@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import "./Navbar.css";
 
 const Navbar = ({ setCurrentCategory, onSearch }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -16,7 +11,6 @@ const Navbar = ({ setCurrentCategory, onSearch }) => {
 
   const handleCategoryChange = (category) => {
     setCurrentCategory(category);
-    setIsDropdownOpen(false);
     setIsSidebarOpen(false);
   };
 
@@ -27,7 +21,7 @@ const Navbar = ({ setCurrentCategory, onSearch }) => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-brand">Pharmacy Inc.</div>
+      <div className="navbar-brand">AB Pharmacy</div>
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <button className="close-sidebar" onClick={toggleSidebar}>
           &times;
@@ -35,47 +29,36 @@ const Navbar = ({ setCurrentCategory, onSearch }) => {
         <a href="#hero" onClick={toggleSidebar}>
           Home
         </a>
-        <div className="dropdown">
-          <button className="dropdown-toggle" onClick={toggleDropdown}>
-            Products
-          </button>
-          {isDropdownOpen && (
-            <div className="dropdown-menu">
-              <button onClick={() => handleCategoryChange("general")}>
-                General
-              </button>
-              <button onClick={() => handleCategoryChange("popular")}>
-                Popular
-              </button>
-              <button onClick={() => handleCategoryChange("herbal")}>
-                Herbal
-              </button>
-              <button onClick={() => handleCategoryChange("surgical")}>
-                Surgical
-              </button>
-              <button onClick={() => handleCategoryChange("baby_food")}>
-                Baby Food
-              </button>
-              <button onClick={() => handleCategoryChange("others")}>
-                Others
-              </button>
-            </div>
-          )}
+        <div className="dropdown always-open">
+          <button className="dropdown-toggle">Products</button>
+          <div className="dropdown-menu">
+            <button onClick={() => handleCategoryChange("all")}>All</button>
+            <button onClick={() => handleCategoryChange("general")}>
+              General
+            </button>
+            <button onClick={() => handleCategoryChange("popular")}>
+              Popular
+            </button>
+            <button onClick={() => handleCategoryChange("herbal")}>
+              Herbal
+            </button>
+            <button onClick={() => handleCategoryChange("surgical")}>
+              Surgical
+            </button>
+            <button onClick={() => handleCategoryChange("baby_food")}>
+              Baby Food
+            </button>
+            <button onClick={() => handleCategoryChange("others")}>
+              Others
+            </button>
+          </div>
         </div>
-        <a href="#services" onClick={toggleSidebar}>
-          Order Chart
+        <a href="#order" onClick={toggleSidebar}>
+          ORDER & DELIVERY
         </a>
         <a href="#contact" onClick={toggleSidebar}>
           Contact
         </a>
-        <div className="search-form">
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={searchQuery}
-            onChange={handleSearchInputChange}
-          />
-        </div>
       </div>
       <div
         className={`backdrop ${isSidebarOpen ? "show" : ""}`}
@@ -87,42 +70,33 @@ const Navbar = ({ setCurrentCategory, onSearch }) => {
       <div className="navbar-links">
         <a href="#hero">Home</a>
         <div className="dropdown">
-          <button className="dropdown-toggle" onClick={toggleDropdown}>
+          <button className="dropdown-toggle" onClick={toggleSidebar}>
             Products
           </button>
-          {isDropdownOpen && (
-            <div className="dropdown-menu">
-              <button onClick={() => handleCategoryChange("general")}>
-                General
-              </button>
-              <button onClick={() => handleCategoryChange("popular")}>
-                Popular
-              </button>
-              <button onClick={() => handleCategoryChange("herbal")}>
-                Herbal
-              </button>
-              <button onClick={() => handleCategoryChange("surgical")}>
-                Surgical
-              </button>
-              <button onClick={() => handleCategoryChange("baby_food")}>
-                Baby Food
-              </button>
-              <button onClick={() => handleCategoryChange("others")}>
-                Others
-              </button>
-            </div>
-          )}
+          <div className="dropdown-menu">
+            <button onClick={() => handleCategoryChange("all")}>All</button>
+            <button onClick={() => handleCategoryChange("general")}>
+              General
+            </button>
+            <button onClick={() => handleCategoryChange("popular")}>
+              Popular
+            </button>
+            <button onClick={() => handleCategoryChange("herbal")}>
+              Herbal
+            </button>
+            <button onClick={() => handleCategoryChange("surgical")}>
+              Surgical
+            </button>
+            <button onClick={() => handleCategoryChange("baby_food")}>
+              Baby Food
+            </button>
+            <button onClick={() => handleCategoryChange("others")}>
+              Others
+            </button>
+          </div>
         </div>
-        <a href="#services">Order Chart</a>
+        <a href="#order">ORDER & DELIVERY</a>
         <a href="#contact">Contact</a>
-        <div className="search-form">
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={searchQuery}
-            onChange={handleSearchInputChange}
-          />
-        </div>
       </div>
     </nav>
   );

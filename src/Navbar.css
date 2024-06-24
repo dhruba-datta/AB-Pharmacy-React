@@ -118,8 +118,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  height: 100%;
-  width: 250px;
+  height: 90%;
+  width: 95%;
   background-color: #00796B;
   color: white;
   padding-top: 60px;
@@ -179,4 +179,35 @@
   .sidebar {
     display: flex;
   }
+
+  .dropdown.always-open .dropdown-menu {
+    display: block;
+    position: relative;
+    top: auto;
+    left: auto;
+    border: none;
+    box-shadow: none;
+    width: 90%;
+    margin: 0 auto;  /* Center the dropdown menu within its parent */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items horizontally */
+    justify-content: center; /* Center align items vertically */
+  }
+  
+  .dropdown.always-open .dropdown-menu button {
+    color: rgb(143, 64, 64);
+    text-align: center;
+    justify-content: center;
+    width: 100%;  
+    border: none;
+    border-radius: 4px; /* Add some rounding to the buttons */
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown.always-open .dropdown-menu button:hover {
+    background-color: #8abeb7; /* Slightly darker shade on hover for feedback */
+  }
+  
 }
