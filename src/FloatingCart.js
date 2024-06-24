@@ -45,7 +45,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
                           {item.product.Name}
                         </span>
                         <span className="cart-item-mrp">
-                          MRP: {item.product.Price.toFixed(2)}
+                          Price: &#2547; {item.product.Price.toFixed(2)}
                         </span>
                       </div>
                       <div className="cart-item-column cart-item-center">
@@ -53,7 +53,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
                           Quantity: {item.quantity}
                         </span>
                         <span className="cart-item-total">
-                          Total:{" "}
+                          Total: &#2547;{" "}
                           {(item.product.Price * item.quantity).toFixed(2)}
                         </span>
                       </div>
@@ -71,7 +71,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
               </ul>
             )}
             <div className="cart-total">
-              Total:{" "}
+              Total: &#2547;{" "}
               <span className="cart-total-price">{cartTotal.toFixed(2)}</span>
             </div>
           </div>
