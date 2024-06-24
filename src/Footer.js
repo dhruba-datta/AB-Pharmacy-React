@@ -21,9 +21,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-left">
-          <p>
-            Copyright &copy; {new Date().getFullYear()} | All Rights Reserved
-          </p>
+          <p>Copyright &copy; {new Date().getFullYear()}</p>
         </div>
       </div>
     </footer>
