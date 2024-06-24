@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./FloatingCart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -62,7 +62,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
                           className="cart-item-remove"
                           onClick={() => onRemoveFromCart(item.product)}
                         >
-                          <FontAwesomeIcon icon={faTrashAlt} />
+                          <FontAwesomeIcon icon={faTrash} />
                         </button>
                       </div>
                     </div>
