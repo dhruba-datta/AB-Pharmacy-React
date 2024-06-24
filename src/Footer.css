@@ -8,15 +8,18 @@
 
 .footer h1{
   color: white;
-  font-size: 30px;
+  font-size: 35px;
+  font-weight: 700;
 }
 
 
 .footer-content {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
+  font-size: 15px;
 }
 
 .footer-left,
@@ -26,24 +29,17 @@
 
 .footer-links {
   list-style: none;
-  padding: 7px;
-  margin-bottom: 20px;
+  padding: 15px;
   font-style: italic;
 }
 
 .footer-links li {
   display: inline-block;
-  margin-right: 20px;
 }
 
 .footer-links a {
   color: #fff;
   text-decoration: none;
-}
-
-.footer-links i {
-  font-size: 18px;
-  margin-right: 10px;
 }
 
 
@@ -75,4 +71,11 @@
     display: inline-block;
     margin-right: 10px;
   }
+}
+
+.footer-logo {
+  width: 150px; /* Set a fixed width for the logo */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 25px;
+  margin-bottom: 5px;
 }

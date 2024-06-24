@@ -1,12 +1,12 @@
-// src/Footer.js
-
 import React from "react";
 import "./Footer.css";
+import logo from "./images/logo.png";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
+        <img src={logo} alt="AB Pharmacy Logo" className="footer-logo" />
         <div className="footer-right">
           <h1>AB Pharmacy</h1>
           <ul className="footer-links">

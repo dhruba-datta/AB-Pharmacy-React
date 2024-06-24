@@ -8,6 +8,7 @@
 
 /* Global styling for headings and sections */
 h1, h2, h3 {
+  font-family: 'Poppins', sans-serif; 
   font-size: 2em;
   font-weight: 700;
   margin-bottom: 20px;
