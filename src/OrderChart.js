@@ -5,11 +5,10 @@ import "./OrderChart.css";
 
 const OrderChart = () => {
   return (
-    <section id="services" className="services">
+    <section id="order" className="services">
       <div className="container">
         <div className="section-title" data-aos="zoom-out">
-          <h2>Services</h2>
-          <p>Order & delivery chart</p>
+          <h2>Order & delivery chart</h2>
         </div>
         <div className="row">
           <div className="col">

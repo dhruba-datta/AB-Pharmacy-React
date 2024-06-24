@@ -4,7 +4,7 @@ import Papa from "papaparse";
 import ProductCard from "./ProductCard";
 import FloatingCart from "./FloatingCart";
 import Navbar from "./Navbar";
-import "./ProductList.css";
+import "./ProductList.css"; // Ensure your spinner styles are included
 
 const sheetUrls = {
   general:
@@ -65,11 +65,13 @@ const ProductList = () => {
       });
     } catch (error) {
       console.error("Error fetching data:", error);
+      setLoading(false);
     }
   };
 
   // Fetch data when component mounts and set interval for periodic fetching
   useEffect(() => {
+    setLoading(true); // Set loading to true when category changes
     fetchData(sheetUrls[currentCategory]);
     const intervalId = setInterval(
       () => fetchData(sheetUrls[currentCategory]),
@@ -104,10 +106,11 @@ const ProductList = () => {
   };
 
   return (
-    <div>
+    <section id="productlist" className="product-section">
       <Navbar setCurrentCategory={setCurrentCategory} />
+      <h2>Products</h2>
       {loading ? (
-        <p className="loading">Loading...</p>
+        <div className="spinner"></div>
       ) : (
         <>
           <div className="category-buttons">
@@ -115,7 +118,10 @@ const ProductList = () => {
               <button
                 key={category}
                 className={currentCategory === category ? "active" : ""}
-                onClick={() => setCurrentCategory(category)}
+                onClick={() => {
+                  setLoading(true); // Set loading to true when category button is clicked
+                  setCurrentCategory(category);
+                }}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </button>
@@ -137,7 +143,7 @@ const ProductList = () => {
           />
         </>
       )}
-    </div>
+    </section>
   );
 };
 

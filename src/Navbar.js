@@ -26,7 +26,6 @@ const Navbar = ({ setCurrentCategory }) => {
         <div className="dropdown always-open">
           <button className="dropdown-toggle">Products</button>
           <div className="dropdown-menu">
-            <button onClick={() => handleCategoryChange("all")}>All</button>
             <button onClick={() => handleCategoryChange("general")}>
               General
             </button>
@@ -48,7 +47,7 @@ const Navbar = ({ setCurrentCategory }) => {
           </div>
         </div>
         <a href="#order" onClick={toggleSidebar}>
-          ORDER & DELIVERY
+          Order & delivery
         </a>
         <a href="#contact" onClick={toggleSidebar}>
           Contact
@@ -68,7 +67,6 @@ const Navbar = ({ setCurrentCategory }) => {
             Products
           </button>
           <div className="dropdown-menu">
-            <button onClick={() => handleCategoryChange("all")}>All</button>
             <button onClick={() => handleCategoryChange("general")}>
               General
             </button>
@@ -89,7 +87,7 @@ const Navbar = ({ setCurrentCategory }) => {
             </button>
           </div>
         </div>
-        <a href="#order">ORDER & DELIVERY</a>
+        <a href="#order">Order & delivery</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
