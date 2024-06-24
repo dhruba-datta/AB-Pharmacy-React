@@ -30,10 +30,6 @@ const ProductCard = ({ product, onAddToCart, cartItems }) => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
       onAddToCart(product, quantity - 1);
-    } else {
-      setQuantity(0);
-      setShowQuantitySelector(false);
-      onAddToCart(product, 0);
     }
   };
 
