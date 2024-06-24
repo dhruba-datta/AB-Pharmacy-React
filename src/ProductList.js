@@ -108,7 +108,7 @@ const ProductList = () => {
   return (
     <section id="productlist" className="product-section">
       <Navbar setCurrentCategory={setCurrentCategory} />
-      <h2>Products</h2>
+      <h1>Products</h1>
       {loading ? (
         <div className="spinner"></div>
       ) : (

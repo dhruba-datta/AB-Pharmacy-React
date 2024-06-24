@@ -65,7 +65,7 @@ const OrderChart = () => {
     <section id="order" className="services">
       <div className="container">
         <div className="section-title" data-aos="zoom-out">
-          <h2>Order & Delivery Chart</h2>
+          <h1>Order & Delivery Chart</h1>
         </div>
         <div className="row">
           <div className="col">
