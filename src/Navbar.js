@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 
-const Navbar = ({ setCurrentCategory, onSearch }) => {
+const Navbar = ({ setCurrentCategory }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -12,11 +11,6 @@ const Navbar = ({ setCurrentCategory, onSearch }) => {
   const handleCategoryChange = (category) => {
     setCurrentCategory(category);
     setIsSidebarOpen(false);
-  };
-
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-    onSearch(event.target.value);
   };
 
   return (

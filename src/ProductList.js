@@ -26,7 +26,6 @@ const ProductList = () => {
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("general");
-  const [searchQuery, setSearchQuery] = useState("");
 
   // Function to fetch data from Google Sheets
   const fetchData = async (url) => {
@@ -104,22 +103,9 @@ const ProductList = () => {
     setCartItems(updatedCartItems);
   };
 
-  // Function to handle search input change
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  // Filter products based on search query
-  const filteredProducts = products.filter((product) =>
-    product.Name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   return (
     <div>
-      <Navbar
-        setCurrentCategory={setCurrentCategory}
-        onSearch={handleSearchInputChange}
-      />
+      <Navbar setCurrentCategory={setCurrentCategory} />
       {loading ? (
         <p className="loading">Loading...</p>
       ) : (
@@ -136,7 +122,7 @@ const ProductList = () => {
             ))}
           </div>
           <div className="product-list">
-            {filteredProducts.map((product, index) => (
+            {products.map((product, index) => (
               <ProductCard
                 key={index}
                 product={product}
