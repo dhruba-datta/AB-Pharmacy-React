@@ -11,6 +11,12 @@ const Navbar = ({ setCurrentCategory }) => {
   const handleCategoryChange = (category) => {
     setCurrentCategory(category);
     setIsSidebarOpen(false);
+
+    // Navigate to the product section
+    const productSection = document.getElementById("productlist");
+    if (productSection) {
+      productSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -63,9 +69,7 @@ const Navbar = ({ setCurrentCategory }) => {
       <div className="navbar-links">
         <a href="#hero">Home</a>
         <div className="dropdown">
-          <button className="dropdown-toggle" onClick={toggleSidebar}>
-            Products
-          </button>
+          <button className="dropdown-toggle">Products</button>
           <div className="dropdown-menu">
             <button onClick={() => handleCategoryChange("general")}>
               General
