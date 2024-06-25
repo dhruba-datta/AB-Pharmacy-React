@@ -38,7 +38,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
     e.preventDefault();
 
     // Construct the order details with line breaks
-    const orderDetails = `${name}\n Address: ${address}\n\n${cartItems
+    const orderDetails = `${name}\nAddress: ${address}\n\n${cartItems
       .map((item) => `${item.product.Name} x ${item.quantity}`)
       .join("\n")}\n\nTotal: ৳ ${cartTotal.toFixed(2)}`;
 
@@ -70,7 +70,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
             </button>
             <h2>Shopping Cart</h2>
             {cartItems.length === 0 ? (
-              <p>Your cart is empty. Please add any items.</p>
+              <p>Your cart is empty. Please add products.</p>
             ) : (
               <ul className="cart-items">
                 {cartItems.map((item, index) => (
