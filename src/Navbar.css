@@ -10,21 +10,19 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10000; /* Higher z-index */
   height: 50px; /* Adjusted height */
   transition: background-color 0.3s ease, padding 0.3s ease, top 0.3s ease; /* Smooth transition for background color and other changes */
 }
 
-/* Add a class for the scrolled state */
 .navbar.scrolled {
   background-color: #08575f; /* Background color when scrolled */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10000; /* Higher z-index */
 }
-
 
 /* Branding */
 .navbar-brand {
@@ -108,8 +106,8 @@
   align-items: center;
   position: relative;
   margin-left: auto; /* Pushes the search container to the right */
+  z-index: 10001; /* Ensure it stays above other elements */
 }
-
 .search-icon {
   background: none;
   border: none;

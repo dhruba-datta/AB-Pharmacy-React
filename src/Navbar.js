@@ -65,15 +65,28 @@ const Navbar = ({
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerHeight < 500) {
+        // If height is less than 500px, likely the keyboard is open
+        document.querySelector(".navbar").style.position = "fixed";
+      } else {
+        document.querySelector(".navbar").style.position = "fixed";
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-      <div className="navbar-brand">AB Pharmacy2</div>
+      <div className="navbar-brand">AB Pharmacy</div>
       <div className="search-container">
         {!isSearchOpen ? (
           <button className="search-icon" onClick={toggleSearch}>
