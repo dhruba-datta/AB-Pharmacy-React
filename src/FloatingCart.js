@@ -49,6 +49,11 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
 
     // Open the WhatsApp URL in a new tab
     window.open(whatsappUrl, "_blank");
+
+    // Reload the website after a short delay
+    setTimeout(() => {
+      window.location.reload();
+    }, 500); // Adjust the delay as needed
   };
 
   return (
