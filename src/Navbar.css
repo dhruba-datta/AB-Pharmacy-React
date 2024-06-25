@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   z-index: 10000; /* Higher z-index */
-  height: 50px; /* Adjusted height */
+  height: 60px; /* Adjusted height */
   transition: background-color 0.3s ease, padding 0.3s ease, top 0.3s ease; /* Smooth transition for background color and other changes */
 }
 
@@ -21,7 +21,8 @@
 
 /* Branding */
 .navbar-brand {
-  font-size: 1.3em; /* Adjusted font size */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5em; /* Adjusted font size */
   font-weight: bold;
 }
 
@@ -105,11 +106,11 @@
 .search-icon {
   background: none;
   border: none;
-  font-size: 18px; /* Adjusted font size */
+  font-size: 25px; /* Adjusted font size */
   color: white;
   cursor: pointer;
   padding-top: 5px;
-  padding-right: 5px;
+  padding-right: 15px;
   margin-left: 8px; /* Adjusted margin */
 }
 
@@ -151,7 +152,7 @@
   background-color: #00796b00;
   color: white;
   border: none;
-  font-size: 1.3em; /* Adjusted font size */
+  font-size: 1.7em; /* Adjusted font size */
   cursor: pointer;
   display: none;
 }
