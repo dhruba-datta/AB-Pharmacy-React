@@ -54,6 +54,14 @@ const Navbar = ({ setCurrentCategory, onSearchClick }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isSidebarOpen]);
+
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-brand">AB Pharmacy</div>
