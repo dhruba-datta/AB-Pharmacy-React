@@ -70,7 +70,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
             </button>
             <h2>Shopping Cart</h2>
             {cartItems.length === 0 ? (
-              <p>Your cart is empty. Please add any items to order.</p>
+              <p>Your cart is empty. Please add any items.</p>
             ) : (
               <ul className="cart-items">
                 {cartItems.map((item, index) => (
