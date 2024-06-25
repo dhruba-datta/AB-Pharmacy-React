@@ -156,22 +156,24 @@ const ProductList = () => {
       <h1>Products</h1>
       {isSearchOpen && (
         <div className="search-container">
-          <input
-            ref={searchInputRef}
-            type="text"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={(e) => handleSearchQueryChange(e.target.value)}
-            className={`search-input ${isSearchOpen ? "active" : ""}`}
-          />
-          {searchQuery && (
-            <button
-              className="clear-search"
-              onClick={() => handleSearchQueryChange("")}
-            >
-              <FontAwesomeIcon icon={faTimes} />
-            </button>
-          )}
+          <div className="search">
+            <input
+              ref={searchInputRef}
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => handleSearchQueryChange(e.target.value)}
+              className={`search-input ${isSearchOpen ? "active" : ""}`}
+            />
+            {searchQuery && (
+              <button
+                className="clear-search"
+                onClick={() => handleSearchQueryChange("")}
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            )}
+          </div>
         </div>
       )}
       {loading ? (

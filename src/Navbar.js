@@ -68,7 +68,7 @@ const Navbar = ({ setCurrentCategory, onSearchClick }) => {
         <a href="#order">Order & delivery</a>
         <a href="#contact">Contact</a>
       </div>
-      <div className="search-container">
+      <div className="search-cont">
         <button className="search-icon" onClick={onSearchClick}>
           <FontAwesomeIcon icon={faSearch} />
         </button>
