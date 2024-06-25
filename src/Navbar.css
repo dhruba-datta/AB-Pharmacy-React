@@ -1,32 +1,38 @@
+/* Navbar container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #00796B;
-  padding: 10px 20px;
+  padding: 8px 20px; /* Adjusted padding */
   color: white;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  height: 50px; /* Adjusted height */
+  transition: padding 0.3s ease; /* Smooth transition for padding changes */
 }
 
+/* Branding */
 .navbar-brand {
-  font-size: 1.5em;
+  font-size: 1.3em; /* Adjusted font size */
   font-weight: bold;
 }
 
+/* Links container */
 .navbar-links {
   display: flex;
   align-items: center;
 }
 
+/* Links */
 .navbar-links a {
-  margin-left: 20px;
+  margin-left: 15px; /* Adjusted margin */
   color: white;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 0.9em; /* Adjusted font size */
   transition: color 0.3s ease;
 }
 
@@ -34,6 +40,7 @@
   color: #f1f1f1;
 }
 
+/* Dropdown container */
 .dropdown {
   position: relative;
 }
@@ -43,9 +50,9 @@
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 1em;
-  margin-left: 20px;
-  padding: 10px 20px;
+  font-size: 0.9em; /* Adjusted font size */
+  margin-left: 15px; /* Adjusted margin */
+  padding: 8px 16px; /* Adjusted padding */
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
@@ -64,7 +71,7 @@
   border-radius: 4px;
   overflow: hidden;
   z-index: 1000;
-  width: 200px;
+  width: 180px; /* Adjusted width */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -72,7 +79,7 @@
   background-color: white;
   color: #00796B;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 16px; /* Adjusted padding */
   text-align: left;
   width: 100%;
   cursor: pointer;
@@ -84,31 +91,59 @@
   color: #005a4c;
 }
 
-.search-form {
-  margin-left: 20px;
+/* Search container */
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: auto; /* Pushes the search container to the right */
 }
 
-.search-form input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1em;
-}
-
-.search-form button {
-  background-color: #00796B;
-  color: white;
+.search-icon {
+  background: none;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  font-size: 1em; /* Adjusted font size */
+  color: white;
   cursor: pointer;
-  font-size: 1em;
-  margin-left: 5px;
-  transition: background-color 0.3s ease;
+  margin-left: 8px; /* Adjusted margin */
 }
 
-.search-form button:hover {
-  background-color: #005a4c;
+/* Search input */
+.search-input {
+  padding: 10px 16px; /* Adjusted padding */
+  border: 2px solid #00796B;
+  border-radius: 40px; /* Adjusted border-radius */
+  font-size: 0.9em; /* Adjusted font size */
+  width: 160px; /* Adjusted width */
+  transition: width 0.3s ease;
+  outline: none;
+  display: none; /* Initially hide the search input */
+}
+
+.search-input.active {
+  display: block; /* Show the search input when active */
+}
+
+.search-input:focus {
+  width: 240px; /* Adjusted width */
+}
+
+.clear-search {
+  background: none;
+  border: none;
+  font-size: 1em; /* Adjusted font size */
+  color: #aaa;
+  cursor: pointer;
+  position: absolute;
+  right: 12px; /* Adjusted position */
+}
+
+.search-input:focus + .clear-search {
+  display: block;
+}
+
+.clear-search:hover {
+  color: #f44336;
 }
 
 /* Sidebar styles */
@@ -118,21 +153,21 @@
   position: fixed;
   top: 0;
   right: 0;
-  height: 90%;
-  width: 95%;
+  height: 100%;
+  width: 80%;
   background-color: #00796B;
   color: white;
-  padding-top: 60px;
+  padding-top: 50px; /* Adjusted padding-top */
   transition: transform 0.3s ease;
   transform: translateX(100%);
   z-index: 1000;
 }
 
 .sidebar a {
-  padding: 10px 15px;
+  padding: 8px 12px; /* Adjusted padding */
   text-decoration: none;
   color: white;
-  font-size: 1.2em;
+  font-size: 0.9em; /* Adjusted font size */
   display: block;
   transition: background-color 0.3s ease;
 }
@@ -149,19 +184,19 @@
   background-color: #00796B;
   color: white;
   border: none;
-  font-size: 1.5em;
+  font-size: 1.3em; /* Adjusted font size */
   cursor: pointer;
-  display: none; /* Hide the button by default */
+  display: none;
 }
 
 /* Close button inside sidebar */
 .close-sidebar {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px; /* Adjusted position */
+  right: 8px; /* Adjusted position */
   background: none;
   border: none;
-  font-size: 2em;
+  font-size: 1.6em; /* Adjusted font size */
   color: white;
   cursor: pointer;
 }
@@ -170,6 +205,19 @@
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
+  }
+
+  .search-container {
+    margin-right: 8px; /* Adjust margin as needed */
+  }
+
+  .search-input {
+    width: 100%;
+    display: block; /* Show the search input in mobile view */
+  }
+
+  .clear-search {
+    right: 8px; /* Adjusted position */
   }
 
   .sidebar-toggle {
@@ -185,29 +233,65 @@
     position: relative;
     top: auto;
     left: auto;
+    background-color: transparent;
+    color: white;
     border: none;
+    width: auto;
     box-shadow: none;
-    width: 90%;
-    margin: 0 auto;  /* Center the dropdown menu within its parent */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center align items horizontally */
-    justify-content: center; /* Center align items vertically */
   }
-  
+
   .dropdown.always-open .dropdown-menu button {
-    color: rgb(143, 64, 64);
-    text-align: center;
-    justify-content: center;
-    width: 100%;  
-    border: none;
-    border-radius: 4px; /* Add some rounding to the buttons */
-    transition: background-color 0.3s ease;
+    background-color: transparent;
+    color: white;
   }
-  
+
   .dropdown.always-open .dropdown-menu button:hover {
-    background-color: #8abeb7; /* Slightly darker shade on hover for feedback */
+    background-color: #005a4c;
+    color: white;
   }
-  
+}
+
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.backdrop.show {
+  display: block;
+}
+
+/* Styles for search results */
+#search-results {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: white;
+  color: #00796B;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1001;
+}
+
+#search-results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#search-results li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#search-results li:last-child {
+  border-bottom: none;
 }

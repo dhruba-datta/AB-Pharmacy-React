@@ -23,10 +23,12 @@ const sheetUrls = {
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("general");
   const [viewMore, setViewMore] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Function to fetch data from Google Sheets
   const fetchData = async (url, viewAll = false) => {
@@ -117,23 +119,49 @@ const ProductList = () => {
     fetchData(sheetUrls[currentCategory], true);
   };
 
+  // Function to handle search query change
+  const handleSearchQueryChange = (query) => {
+    setSearchQuery(query);
+    if (query === "") {
+      setFilteredProducts([]);
+      setViewMore(false);
+    } else {
+      const results = products.filter((product) =>
+        product.Name.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredProducts(results);
+      setViewMore(true);
+    }
+  };
+
   return (
     <section id="productlist" className="product-section">
-      <Navbar setCurrentCategory={setCurrentCategory} />
+      <Navbar
+        setCurrentCategory={setCurrentCategory}
+        searchQuery={searchQuery}
+        setSearchQuery={handleSearchQueryChange}
+        setFilteredProducts={setFilteredProducts}
+        handleViewMore={handleViewMore}
+      />
       <h1>Products</h1>
       {loading ? (
         <div className="spinner"></div>
       ) : (
         <>
           <div className="product-list">
-            {products.map((product, index) => (
-              <ProductCard
-                key={index}
-                product={product}
-                onAddToCart={handleAddToCart}
-                cartItems={cartItems}
-              />
-            ))}
+            {(filteredProducts.length > 0 ? filteredProducts : products).map(
+              (product, index) => (
+                <ProductCard
+                  key={index}
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                  cartItems={cartItems}
+                />
+              )
+            )}
+            {filteredProducts.length === 0 && searchQuery && (
+              <p>No products found</p>
+            )}
           </div>
           {!viewMore && products.length === 10 && (
             <button className="view-more" onClick={handleViewMore}>
