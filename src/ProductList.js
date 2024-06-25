@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import "./ProductList.css"; // Ensure your spinner styles are included
 
 const sheetUrls = {
+  all: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQYGe49CMfHtSVXwpeytgh5FvCT-06ec539uGMx25oWgEzZo1RvBZaGgZpPTDDW2w/pub?gid=1110016514&output=csv",
   general:
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vQYGe49CMfHtSVXwpeytgh5FvCT-06ec539uGMx25oWgEzZo1RvBZaGgZpPTDDW2w/pub?gid=1169693582&output=csv",
   popular:
@@ -26,7 +27,7 @@ const ProductList = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
-  const [currentCategory, setCurrentCategory] = useState("general");
+  const [currentCategory, setCurrentCategory] = useState("all"); // Default to 'all' category
   const [viewMore, setViewMore] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
