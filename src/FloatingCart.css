@@ -294,4 +294,8 @@
   .form-label {
     margin: 8px 0 4px;
   }
+
+  .order-form {
+    max-width: 80%;
+  }
 }
