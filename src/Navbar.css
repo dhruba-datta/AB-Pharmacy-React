@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #00796B;
+  background-color: transparent; /* Initial background color */
   padding: 8px 20px; /* Adjusted padding */
   color: white;
   position: fixed;
@@ -12,8 +12,14 @@
   right: 0;
   z-index: 1000;
   height: 50px; /* Adjusted height */
-  transition: padding 0.3s ease, top 0.3s ease; /* Smooth transition for padding and position changes */
+  transition: background-color 0.3s ease, padding 0.3s ease, top 0.3s ease; /* Smooth transition for background color and other changes */
 }
+
+/* Add a class for the scrolled state */
+.navbar.scrolled {
+  background-color: #08575f; /* Background color when scrolled */
+}
+
 
 /* Branding */
 .navbar-brand {
@@ -106,7 +112,7 @@
   color: white;
   cursor: pointer;
   padding-top: 5px;
-  padding-right: 0px;
+  padding-right: 2px;
   margin-left: 8px; /* Adjusted margin */
 }
 
@@ -181,7 +187,7 @@
 }
 
 .sidebar-toggle {
-  background-color: #00796B;
+  background-color: #00796b00;
   color: white;
   border: none;
   font-size: 1.3em; /* Adjusted font size */
