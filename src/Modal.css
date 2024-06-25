@@ -61,3 +61,8 @@
         max-width: none; 
     }
 }
+
+/* Disable background scrolling when modal is open */
+.no-scroll {
+    overflow: hidden;
+  }

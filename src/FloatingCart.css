@@ -301,3 +301,8 @@
     max-width: 80%;
   }
 }
+
+/* Disable background scrolling when the floating cart or order form is open */
+.no-scroll {
+  overflow: hidden;
+}

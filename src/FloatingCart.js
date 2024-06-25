@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./FloatingCart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
@@ -8,6 +8,19 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
   const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
+
+  useEffect(() => {
+    if (isPopupOpen || isOrderFormOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    // Clean up the effect when component unmounts or states change
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isPopupOpen, isOrderFormOpen]);
 
   const cartTotal = cartItems.reduce(
     (total, item) => total + item.product.Price * item.quantity,
