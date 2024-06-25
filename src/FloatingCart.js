@@ -40,7 +40,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
     // Construct the order details with line breaks
     const orderDetails = `${name}\nAddress: ${address}\n\n${cartItems
       .map((item) => `${item.product.Name} x ${item.quantity}`)
-      .join("\n")}\n\nTotal: ৳ ${cartTotal.toFixed(2)}`;
+      .join("\n")}\n\nTotal: ৳${cartTotal.toFixed(2)}`;
 
     // Create the WhatsApp URL with the order details
     const whatsappUrl = `https://wa.me/+8801912555765?text=${encodeURIComponent(
@@ -86,7 +86,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
                           {item.product.Name}
                         </span>
                         <span className="cart-item-mrp">
-                          Price: ৳ {item.product.Price.toFixed(2)}
+                          Price: ৳{item.product.Price.toFixed(2)}
                         </span>
                       </div>
                       <div className="cart-item-column cart-item-center">
@@ -94,7 +94,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
                           Quantity: {item.quantity}
                         </span>
                         <span className="cart-item-total">
-                          Total: ৳{" "}
+                          Total: ৳
                           {(item.product.Price * item.quantity).toFixed(2)}
                         </span>
                       </div>
@@ -113,7 +113,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
             )}
             <div className="cart-total">
               <hr className="thin-hr" />
-              Total Price: ৳{" "}
+              Total Price: ৳
               <span className="cart-total-price">{cartTotal.toFixed(2)}</span>
             </div>
             <button
