@@ -1,33 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 
-const Navbar = ({
-  setCurrentCategory,
-  searchQuery,
-  setSearchQuery,
-  setFilteredProducts,
-  handleViewMore,
-}) => {
+const Navbar = ({ setCurrentCategory, onSearchClick }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const searchInputRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-  };
-
-  const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
-    if (!isSearchOpen) {
-      setTimeout(() => {
-        if (searchInputRef.current) {
-          searchInputRef.current.focus();
-        }
-      }, 100); // Adjust the delay as needed
-    }
   };
 
   const handleCategoryChange = (category) => {
@@ -40,22 +21,6 @@ const Navbar = ({
     }
   };
 
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-    handleViewMore();
-
-    const productSection = document.getElementById("productlist");
-    if (productSection) {
-      productSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const clearSearch = () => {
-    setSearchQuery("");
-    setFilteredProducts([]);
-    setIsSearchOpen(false);
-  };
-
   const handleScroll = () => {
     if (window.scrollY > 50) {
       setIsScrolled(true);
@@ -65,60 +30,16 @@ const Navbar = ({
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerHeight < 500) {
-        // If height is less than 500px, likely the keyboard is open
-        document.querySelector(".navbar").style.position = "fixed";
-      } else {
-        document.querySelector(".navbar").style.position = "fixed";
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
-    handleResize();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  useEffect(() => {
-    const inputRef = searchInputRef.current;
-    return () => {
-      if (inputRef) {
-        inputRef.blur(); // Cleanup example, adjust as needed
-      }
-    };
-  }, [isSearchOpen]);
 
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-brand">AB Pharmacy</div>
-      <div className="search-container">
-        {!isSearchOpen ? (
-          <button className="search-icon" onClick={toggleSearch}>
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
-        ) : (
-          <>
-            <input
-              ref={searchInputRef}
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => handleSearch(e.target.value)}
-              className={`search-input ${isSearchOpen ? "active" : ""}`}
-            />
-            {searchQuery && (
-              <button className="clear-search" onClick={clearSearch}>
-                <FontAwesomeIcon icon={faTimes} />
-              </button>
-            )}
-          </>
-        )}
-      </div>
       <div className="navbar-links">
         <a href="#hero">Home</a>
         <div className="dropdown">
@@ -146,6 +67,11 @@ const Navbar = ({
         </div>
         <a href="#order">Order & delivery</a>
         <a href="#contact">Contact</a>
+      </div>
+      <div className="search-container">
+        <button className="search-icon" onClick={onSearchClick}>
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
       </div>
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <button className="close-sidebar" onClick={toggleSidebar}>
