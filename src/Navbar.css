@@ -12,7 +12,7 @@
   right: 0;
   z-index: 1000;
   height: 50px; /* Adjusted height */
-  transition: padding 0.3s ease; /* Smooth transition for padding changes */
+  transition: padding 0.3s ease, top 0.3s ease; /* Smooth transition for padding and position changes */
 }
 
 /* Branding */
@@ -110,6 +110,7 @@
   margin-left: 8px; /* Adjusted margin */
 }
 
+
 /* Search input */
 .search-input {
   padding: 10px 16px; /* Adjusted padding */
@@ -117,7 +118,6 @@
   border-radius: 40px; /* Adjusted border-radius */
   font-size: 0.9em; /* Adjusted font size */
   width: 160px; /* Fixed width for search input */
-  transition: width 0.3s ease;
   outline: none;
   display: none; /* Initially hide the search input */
 }
@@ -125,6 +125,7 @@
 .search-input.active,
 .search-input:focus {
   width: 120px; /* Adjusted width */
+  display: block;
 }
 
 .clear-search {
@@ -295,3 +296,4 @@
 #search-results li:last-child {
   border-bottom: none;
 }
+

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
@@ -12,6 +12,7 @@ const Navbar = ({
 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const searchInputRef = useRef(null);
 
   const toggleSidebar = () => {
@@ -21,7 +22,6 @@ const Navbar = ({
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
     if (!isSearchOpen) {
-      // Focus on the search input when opening the search
       setTimeout(() => {
         if (searchInputRef.current) {
           searchInputRef.current.focus();
@@ -34,7 +34,6 @@ const Navbar = ({
     setCurrentCategory(category);
     setIsSidebarOpen(false);
 
-    // Navigate to the product section
     const productSection = document.getElementById("productlist");
     if (productSection) {
       productSection.scrollIntoView({ behavior: "smooth" });
@@ -43,7 +42,7 @@ const Navbar = ({
 
   const handleSearch = (query) => {
     setSearchQuery(query);
-    handleViewMore(); // Automatically click "View More" button
+    handleViewMore();
 
     const productSection = document.getElementById("productlist");
     if (productSection) {
@@ -54,12 +53,27 @@ const Navbar = ({
   const clearSearch = () => {
     setSearchQuery("");
     setFilteredProducts([]);
-    setIsSearchOpen(false); // Close the search input when clearing
+    setIsSearchOpen(false);
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">AB Pharmacy</div>
+    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
+      <div className="navbar-brand">AB Pharmacy2</div>
       <div className="search-container">
         {!isSearchOpen ? (
           <button className="search-icon" onClick={toggleSearch}>
