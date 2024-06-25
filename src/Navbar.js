@@ -76,6 +76,7 @@ const Navbar = ({ setCurrentCategory, onSearchClick }) => {
             Products
           </button>
           <div className={`dropdown-menu ${isDropdownOpen ? "open" : ""}`}>
+            <button onClick={() => handleCategoryChange("all")}>All</button>
             <button onClick={() => handleCategoryChange("general")}>
               General
             </button>
@@ -119,6 +120,7 @@ const Navbar = ({ setCurrentCategory, onSearchClick }) => {
           <div
             className={`dropdown-menu ${isSidebarDropdownOpen ? "open" : ""}`}
           >
+            <button onClick={() => handleCategoryChange("all")}>All</button>
             <button onClick={() => handleCategoryChange("general")}>
               General
             </button>
