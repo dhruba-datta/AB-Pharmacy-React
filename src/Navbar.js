@@ -84,6 +84,15 @@ const Navbar = ({
     };
   }, []);
 
+  useEffect(() => {
+    const inputRef = searchInputRef.current;
+    return () => {
+      if (inputRef) {
+        inputRef.blur(); // Cleanup example, adjust as needed
+      }
+    };
+  }, [isSearchOpen]);
+
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-brand">AB Pharmacy</div>

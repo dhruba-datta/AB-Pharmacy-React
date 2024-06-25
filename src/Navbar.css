@@ -17,11 +17,6 @@
 
 .navbar.scrolled {
   background-color: #08575f; /* Background color when scrolled */
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10000; /* Higher z-index */
 }
 
 /* Branding */
@@ -106,6 +101,7 @@
   position: relative;
   margin-left: auto; 
 }
+
 .search-icon {
   background: none;
   border: none;
@@ -116,7 +112,6 @@
   padding-right: 5px;
   margin-left: 8px; /* Adjusted margin */
 }
-
 
 /* Search input */
 .search-input {
@@ -301,4 +296,3 @@
 #search-results li:last-child {
   border-bottom: none;
 }
-
