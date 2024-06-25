@@ -16,7 +16,6 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
       document.body.classList.remove("no-scroll");
     }
 
-    // Clean up the effect when component unmounts or states change
     return () => {
       document.body.classList.remove("no-scroll");
     };
@@ -50,23 +49,19 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Construct the order details with line breaks
     const orderDetails = `${name}\nAddress: ${address}\n\n${cartItems
       .map((item) => `${item.product.Name} x ${item.quantity}`)
       .join("\n")}\n\nTotal: ৳${cartTotal.toFixed(2)}`;
 
-    // Create the WhatsApp URL with the order details
     const whatsappUrl = `https://wa.me/+8801912555765?text=${encodeURIComponent(
       orderDetails
     )}`;
 
-    // Open the WhatsApp URL in a new tab
     window.open(whatsappUrl, "_blank");
 
-    // Reload the website after a short delay
     setTimeout(() => {
       window.location.reload();
-    }, 500); // Adjust the delay as needed
+    }, 500);
   };
 
   return (

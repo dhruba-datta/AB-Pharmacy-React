@@ -1,5 +1,5 @@
 .footer {
-  background-color: #08575f; /* Dark gray */
+  background-color: #08575f;
   color: #fff;
   text-align: center;
   padding-top: 20px;
@@ -74,7 +74,7 @@
 }
 
 .footer-logo {
-  width: 150px; /* Set a fixed width for the logo */
-  height: auto; /* Maintain aspect ratio */
+  width: 150px;
+  height: auto;
   margin-top: 25px;
 }

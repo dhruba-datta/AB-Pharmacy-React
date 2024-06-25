@@ -1,34 +1,28 @@
-/* src/index.css */
-
-/* Reset default browser styles */
 body, html {
   margin: 0;
   padding: 0;
 }
 
-/* Ensure full height for the root element */
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Styles for components rendered inside #root */
 .App {
-  flex: 1; /* Ensure App takes remaining height */
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Responsive adjustments for the entire application */
 @media (max-width: 768px) {
   h1, h2, h3 {
-    font-size: 1.5em; /* Adjust heading sizes */
+    font-size: 1.5em;
   }
 }
 
 @media (max-width: 480px) {
   h1, h2, h3 {
-    font-size: 1.2em; /* Further adjust heading sizes */
+    font-size: 1.2em;
   }
 }

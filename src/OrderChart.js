@@ -40,7 +40,7 @@ const OrderChart = () => {
     for (let i = 3; i < 27; i++) {
       const currentLine = parsed.data[i];
       const market = {
-        group: Math.ceil((i - 3 + 1) / 4), // Calculate group based on the row index
+        group: Math.ceil((i - 3 + 1) / 4),
         name: currentLine[1],
         details: currentLine[2],
         orderDay: currentLine[3],

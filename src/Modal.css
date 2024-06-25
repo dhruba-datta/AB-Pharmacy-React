@@ -1,5 +1,3 @@
-/* src/Modal.css */
-
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -15,27 +13,27 @@
 .modal {
     background: #fff;
     padding: 20px;
-    border-radius: 8px; /* Increased border-radius for a more modern look */
+    border-radius: 8px;
     max-width: 500px;
     width: 100%;
-    position: relative; /* Ensure relative positioning for absolute child */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Added box-shadow for depth */
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .modal-header {
     display: flex;
     font-size: 0.8em;
-    justify-content: center; /* Center the title horizontally */
+    justify-content: center;
     align-items: center;
     color: #006769;
-    margin-bottom: 0; /* Added space between header and content */
+    margin-bottom: 0;
 }
 
 .modal p {
-    padding-top: 0; /* Remove top padding from paragraph */
-    margin-top: 0; /* Remove any default margin */
-    line-height: 1.5; /* Adjust line height for better readability */
-    font-size: 1rem; /* Adjust font size as needed */
+    padding-top: 0;
+    margin-top: 0;
+    line-height: 1.5;
+    font-size: 1rem;
 }
 
 .modal-close {
@@ -52,17 +50,16 @@
 }
 
 .modal-close:hover {
-    color: #555; /* Darken close icon on hover */
+    color: #555;
 }
 
 @media (max-width: 768px) { 
     .modal {
-        width: 75%; 
-        max-width: none; 
+        width: 75%;
+        max-width: none;
     }
 }
 
-/* Disable background scrolling when modal is open */
 .no-scroll {
     overflow: hidden;
-  }
+}

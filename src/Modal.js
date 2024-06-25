@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Modal.css";
-import { FaTimes } from "react-icons/fa"; // Import close icon from Font Awesome icons
+import { FaTimes } from "react-icons/fa";
 
 const Modal = ({ show, onClose, marketName, marketDetails }) => {
   useEffect(() => {
@@ -10,7 +10,6 @@ const Modal = ({ show, onClose, marketName, marketDetails }) => {
       document.body.classList.remove("no-scroll");
     }
 
-    // Clean up the effect when component unmounts or show state changes
     return () => {
       document.body.classList.remove("no-scroll");
     };
@@ -23,7 +22,7 @@ const Modal = ({ show, onClose, marketName, marketDetails }) => {
   };
 
   const handleModalClick = (event) => {
-    event.stopPropagation(); // Prevent modal click from closing modal
+    event.stopPropagation();
   };
 
   return (

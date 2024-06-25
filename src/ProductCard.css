@@ -1,9 +1,7 @@
-/* src/ProductCard.css */
-
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Spacing between product cards */
+  gap: 20px;
   justify-content: center;
 }
 
@@ -12,8 +10,8 @@
   height: 400px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  text-align: center; /* Center text */
+  align-items: center;
+  text-align: center;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -22,15 +20,15 @@
 }
 
 .product-image {
-  width: 100%; /* Ensure image takes full width of container */
-  height: 200px; /* Fixed height for the image container */
+  width: 100%;
+  height: 200px;
   border-radius: 8px;
   object-fit: cover;
   margin-bottom: 10px;
 }
 
 .product-info {
-  width: 100%; /* Ensure product info spans full width */
+  width: 100%;
 }
 
 .product-name {
@@ -50,8 +48,8 @@
 
 .button-container {
   display: flex;
-  justify-content: center; /* Center buttons horizontally */
-  margin-top: auto; /* Push buttons to the bottom */
+  justify-content: center;
+  margin-top: auto;
 }
 
 .add-to-cart-button,
@@ -90,7 +88,7 @@
 .quantity-selector {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center items horizontally */
+  justify-content: center;
 }
 
 .quantity {
