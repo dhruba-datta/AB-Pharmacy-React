@@ -122,7 +122,10 @@
   display: none; /* Initially hide the search input */
 }
 
-
+.search-input.active,
+.search-input:focus {
+  width: 120px; /* Adjusted width */
+}
 
 .clear-search {
   background: none;
