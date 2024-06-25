@@ -22,7 +22,7 @@
 /* Branding */
 .navbar-brand {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5em; /* Adjusted font size */
+  font-size: 24px; /* Adjusted font size */
   font-weight: bold;
 }
 
@@ -106,10 +106,10 @@
 .search-icon {
   background: none;
   border: none;
-  font-size: 25px; /* Adjusted font size */
+  font-size: 22px; /* Adjusted font size */
   color: white;
   cursor: pointer;
-  padding-top: 5px;
+  padding-top: 10px;
   padding-right: 15px;
   margin-left: 8px; /* Adjusted margin */
 }
@@ -152,7 +152,7 @@
   background-color: #00796b00;
   color: white;
   border: none;
-  font-size: 1.7em; /* Adjusted font size */
+  font-size: 23px; /* Adjusted font size */
   cursor: pointer;
   display: none;
 }
