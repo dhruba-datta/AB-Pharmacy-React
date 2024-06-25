@@ -73,7 +73,7 @@ const Navbar = ({
 
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-      <div className="navbar-brand">AB Pharmacy</div>
+      <div className="navbar-brand">AB Pharmacy2</div>
       <div className="search-container">
         {!isSearchOpen ? (
           <button className="search-icon" onClick={toggleSearch}>

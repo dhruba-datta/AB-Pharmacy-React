@@ -18,6 +18,11 @@
 /* Add a class for the scrolled state */
 .navbar.scrolled {
   background-color: #08575f; /* Background color when scrolled */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 
