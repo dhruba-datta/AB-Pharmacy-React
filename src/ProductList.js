@@ -26,9 +26,10 @@ const ProductList = () => {
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("general");
+  const [viewMore, setViewMore] = useState(false);
 
   // Function to fetch data from Google Sheets
-  const fetchData = async (url) => {
+  const fetchData = async (url, viewAll = false) => {
     try {
       const result = await axios.get(url);
       const csv = result.data;
@@ -57,7 +58,11 @@ const ProductList = () => {
             })
             .filter((product) => product !== null); // Filter out null products
 
-          setProducts(data);
+          if (!viewAll) {
+            setProducts(data.slice(0, 10)); // Show only the first 10 products initially
+          } else {
+            setProducts(data); // Show all products when viewMore is true
+          }
           setLoading(false);
         },
         header: false,
@@ -72,6 +77,7 @@ const ProductList = () => {
   // Fetch data when component mounts and set interval for periodic fetching
   useEffect(() => {
     setLoading(true); // Set loading to true when category changes
+    setViewMore(false); // Reset viewMore when category changes
     fetchData(sheetUrls[currentCategory]);
     const intervalId = setInterval(
       () => fetchData(sheetUrls[currentCategory]),
@@ -105,6 +111,12 @@ const ProductList = () => {
     setCartItems(updatedCartItems);
   };
 
+  // Function to handle "View More" button click
+  const handleViewMore = () => {
+    setViewMore(true);
+    fetchData(sheetUrls[currentCategory], true);
+  };
+
   return (
     <section id="productlist" className="product-section">
       <Navbar setCurrentCategory={setCurrentCategory} />
@@ -113,20 +125,6 @@ const ProductList = () => {
         <div className="spinner"></div>
       ) : (
         <>
-          <div className="category-buttons">
-            {Object.keys(sheetUrls).map((category) => (
-              <button
-                key={category}
-                className={currentCategory === category ? "active" : ""}
-                onClick={() => {
-                  setLoading(true); // Set loading to true when category button is clicked
-                  setCurrentCategory(category);
-                }}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </button>
-            ))}
-          </div>
           <div className="product-list">
             {products.map((product, index) => (
               <ProductCard
@@ -137,6 +135,11 @@ const ProductList = () => {
               />
             ))}
           </div>
+          {!viewMore && products.length === 10 && (
+            <button className="view-more" onClick={handleViewMore}>
+              View More
+            </button>
+          )}
           <FloatingCart
             cartItems={cartItems}
             onRemoveFromCart={handleRemoveFromCart}

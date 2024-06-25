@@ -20,7 +20,7 @@ const HeroSection = () => {
               products
             </p>
             <a
-              href="#contact"
+              href="#productlist"
               className="btn-get-started animate__animated animate__fadeInUp scrollto"
             >
               Read More

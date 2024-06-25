@@ -183,7 +183,7 @@
   width: 40px;
   height: 40px;
   animation: spin 1s linear infinite;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 @keyframes spin {
@@ -213,4 +213,22 @@
 .search-bar input[type="search"]:focus {
   outline: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add styles for the View More button */
+.view-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.view-more:hover {
+  background-color: #005c55;
 }
