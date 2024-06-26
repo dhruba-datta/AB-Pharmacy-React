@@ -236,3 +236,8 @@
 .no-scroll {
   overflow: hidden;
 }
+
+section {
+  padding-top: 60px;
+  margin-top: -60px;
+}
