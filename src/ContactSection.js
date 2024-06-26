@@ -1,4 +1,13 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMobile,
+  faPhone,
+  faEnvelope,
+  faAt,
+  faComments,
+} from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import "./ContactSection.css";
 
 const ContactSection = () => {
@@ -10,44 +19,46 @@ const ContactSection = () => {
       <div className="contact-options">
         <div className="contact-option">
           <div className="contact-icon">
-            <i className="fas fa-mobile-alt"></i>
+            <FontAwesomeIcon icon={faMobile} color="#0097A7" />
           </div>
           <div className="contact-info">
             <h3>Mobile</h3>
-            <a href="tel:+8801912555765">
-              <button className="contact-button">
-                <i className="fas fa-phone"></i> Call us
-              </button>
+            <a
+              href="tel:+8801912555765"
+              className="contact-button contact-button-mobile"
+            >
+              <FontAwesomeIcon icon={faPhone} className="fa-icon" /> Call us
             </a>
           </div>
         </div>
         <div className="contact-option">
           <div className="contact-icon">
-            <i className="fab fa-whatsapp"></i>
+            <FontAwesomeIcon icon={faWhatsapp} color="#25D366" />
           </div>
           <div className="contact-info">
-            <h3>Whatsapp</h3>
+            <h3>WhatsApp</h3>
             <a
               href="https://wa.me/8801912555765"
               target="_blank"
               rel="noopener noreferrer"
+              className="contact-button contact-button-whatsapp"
             >
-              <button className="contact-button">
-                <i className="fab fa-whatsapp"></i> Chat on WhatsApp
-              </button>
+              <FontAwesomeIcon icon={faComments} className="fa-icon" /> Chat
+              with us
             </a>
           </div>
         </div>
         <div className="contact-option">
           <div className="contact-icon">
-            <i className="fas fa-envelope"></i>
+            <FontAwesomeIcon icon={faEnvelope} color="#EA4335" />
           </div>
           <div className="contact-info">
             <h3>Email</h3>
-            <a href="mailto:abpharmacy72@gmail.com">
-              <button className="contact-button">
-                <i className="fas fa-envelope"></i> Send Email
-              </button>
+            <a
+              href="mailto:abpharmacy72@gmail.com"
+              className="contact-button contact-button-email"
+            >
+              <FontAwesomeIcon icon={faAt} className="fa-icon" /> Send mail
             </a>
           </div>
         </div>
