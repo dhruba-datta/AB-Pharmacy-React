@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { /*faSearch,*/ faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 
-const Navbar = ({ setCurrentCategory, onSearchClick }) => {
+const Navbar = ({ setCurrentCategory /*onSearchClick*/ }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSidebarDropdownOpen, setIsSidebarDropdownOpen] = useState(false);
