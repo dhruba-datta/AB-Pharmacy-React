@@ -65,11 +65,11 @@ const Navbar = ({ setCurrentCategory, onSearchClick }) => {
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-brand">AB Pharmacy</div>
-      <div className="search-cont">
+      {/* <div className="search-cont">
         <button className="search-icon" onClick={onSearchClick}>
           <FontAwesomeIcon icon={faSearch} />
         </button>
-      </div>
+      </div> */}
       <div className="navbar-links">
         <a href="#hero">Home</a>
         <div className="dropdown">
