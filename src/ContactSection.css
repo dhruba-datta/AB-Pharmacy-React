@@ -18,8 +18,10 @@
 }
 
 .contact-icon {
-  font-size: 60px; /* Increased the size of icons */
+  font-size: 60px;
   margin-right: 20px;
+  width: 60px; /* Fixed width for icon box */
+  text-align: center; /* Center align icon within the box */
 }
 
 .contact-info {
