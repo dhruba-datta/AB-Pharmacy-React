@@ -65,15 +65,17 @@ const Navbar = ({ setCurrentCategory, onSearchClick }) => {
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-brand">AB Pharmacy</div>
+      <div className="search-cont">
+        <button className="search-icon" onClick={onSearchClick}>
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
+      </div>
       <div className="navbar-links">
         <a href="#hero">Home</a>
         <div className="dropdown">
           <button className="dropdown-toggle" onClick={toggleDropdown}>
-            <FontAwesomeIcon
-              icon={faCaretDown}
-              style={{ marginRight: "8px" }}
-            />
             Products
+            <FontAwesomeIcon icon={faCaretDown} style={{ marginLeft: "8px" }} />
           </button>
           <div className={`dropdown-menu ${isDropdownOpen ? "open" : ""}`}>
             <button onClick={() => handleCategoryChange("all")}>All</button>
@@ -97,13 +99,8 @@ const Navbar = ({ setCurrentCategory, onSearchClick }) => {
             </button>
           </div>
         </div>
-        <a href="#order">Order & delivery</a>
+        <a href="#order">Order & Delivery</a>
         <a href="#contact">Contact</a>
-      </div>
-      <div className="search-cont">
-        <button className="search-icon" onClick={onSearchClick}>
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
       </div>
       <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <button className="close-sidebar" onClick={closeSidebar}>
@@ -142,7 +139,7 @@ const Navbar = ({ setCurrentCategory, onSearchClick }) => {
           </div>
         </div>
         <a href="#order" onClick={closeSidebar}>
-          Order & delivery
+          Order & Delivery
         </a>
         <a href="#contact" onClick={closeSidebar}>
           Contact
