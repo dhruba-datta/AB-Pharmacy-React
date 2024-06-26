@@ -50,10 +50,15 @@ const ProductList = () => {
               const name = values[2] ? values[2].trim() : "";
               if (name === "") return null;
 
-              const imageUrl =
-                values[6] && values[6].trim() !== ""
-                  ? values[6].trim()
-                  : defaultImage;
+              let imageUrl = defaultImage;
+              try {
+                // Dynamically import the image
+                imageUrl = require(`./images/products/${name}.webp`);
+              } catch (error) {
+                console.log(
+                  `Image not found for ${name}, using default image.`
+                );
+              }
 
               return {
                 Name: name,
