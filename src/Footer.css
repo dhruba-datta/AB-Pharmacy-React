@@ -14,7 +14,7 @@
 
 
 .footer-content {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,10 +28,10 @@
 }
 
 .footer-links {
-  font-family: "Open Sans", sans-serif;
   list-style: none;
   padding: 0 15px 15px 15px;
-}
+  font-style: italic;
+} 
 
 .footer-links li {
   display: inline-block;
