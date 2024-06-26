@@ -13,7 +13,7 @@
   flex-direction: column;
   text-align: center;
   position: relative;
-  height: 70vh;
+  height: 90vh !important;
   padding-top: 60px;
 }
 
