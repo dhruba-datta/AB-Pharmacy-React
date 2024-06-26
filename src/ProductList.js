@@ -34,6 +34,7 @@ const ProductList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
+  const [totalProducts, setTotalProducts] = useState(0);
 
   const fetchData = async (url, viewAll = false) => {
     try {
@@ -69,6 +70,8 @@ const ProductList = () => {
           } else {
             setProducts(data);
           }
+
+          setTotalProducts(data.length);
           setLoading(false);
         },
         header: false,
@@ -201,7 +204,7 @@ const ProductList = () => {
               <p>No products found</p>
             )}
           </div>
-          {!viewMore && products.length === 10 && (
+          {!viewMore && totalProducts > 10 && (
             <button className="view-more" onClick={handleViewMore}>
               View More
             </button>
