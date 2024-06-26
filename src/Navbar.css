@@ -241,3 +241,23 @@ section {
   padding-top: 60px;
   margin-top: -60px;
 }
+
+.view-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  z-index: 10; /* Add this line */
+  position: relative; /* Add this line */
+}
+
+.view-more:hover {
+  background-color: #005c55;
+}
