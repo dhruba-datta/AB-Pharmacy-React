@@ -67,9 +67,3 @@ section {
 }
 
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .headline-container {
-    padding: 0 20px; /* Add left and right padding for smaller screens */
-  }
-}
