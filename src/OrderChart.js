@@ -64,8 +64,12 @@ const OrderChart = () => {
   return (
     <section id="order" className="services">
       <div className="container">
-        <div className="section-title" data-aos="zoom-out">
-          <h1>Order & Delivery Chart</h1>
+        <div className="headline-container">
+          <div className="headline-top">
+            <h2 className="headline-h2">SERVICES</h2>
+            <hr className="headline-hr" />
+          </div>
+          <h1 className="headline-h1">Order & Delivery Chart</h1>
         </div>
         <div className="row">
           <div className="col">

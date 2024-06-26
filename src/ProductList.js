@@ -153,7 +153,13 @@ const ProductList = () => {
         setCurrentCategory={setCurrentCategory}
         onSearchClick={toggleSearch}
       />
-      <h1>Products</h1>
+      <div className="headline-container">
+        <div className="headline-top">
+          <h2 className="headline-h2">PRODUCTS</h2>
+          <hr className="headline-hr" />
+        </div>
+        <h1 className="headline-h1">What We Offer</h1>
+      </div>
       {isSearchOpen && (
         <div className="search-container">
           <div className="search">

@@ -13,8 +13,12 @@ import "./ContactSection.css";
 const ContactSection = () => {
   return (
     <section id="contact" className="contact-section">
-      <div className="contact-header">
-        <h1>Contact Us</h1>
+      <div className="headline-container">
+        <div className="headline-top">
+          <h2 className="headline-h2">CONTACT</h2>
+          <hr className="headline-hr" />
+        </div>
+        <h1 className="headline-h1">Contact Us</h1>
       </div>
       <div className="contact-options">
         <div className="contact-option">
