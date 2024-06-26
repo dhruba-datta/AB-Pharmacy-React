@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./ProductList.css";
+import defaultImage from "./images/default.svg"; // Import the default image
 
 const sheetUrls = {
   all: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQYGe49CMfHtSVXwpeytgh5FvCT-06ec539uGMx25oWgEzZo1RvBZaGgZpPTDDW2w/pub?gid=1110016514&output=csv",
@@ -49,11 +50,10 @@ const ProductList = () => {
               const name = values[2] ? values[2].trim() : "";
               if (name === "") return null;
 
-              const defaultImageUrl = "https://example.com/default-image.jpg";
               const imageUrl =
                 values[6] && values[6].trim() !== ""
                   ? values[6].trim()
-                  : defaultImageUrl;
+                  : defaultImage;
 
               return {
                 Name: name,
