@@ -49,7 +49,7 @@ const FloatingCart = ({ cartItems, onRemoveFromCart }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const orderDetails = `${name}\nAddress: ${address}\n\n${cartItems
+    const orderDetails = `${name}\nMarket: ${address}\n\n${cartItems
       .map((item) => `${item.product.Name} x ${item.quantity}`)
       .join("\n")}\n\nTotal: ৳${cartTotal.toFixed(2)}`;
 
